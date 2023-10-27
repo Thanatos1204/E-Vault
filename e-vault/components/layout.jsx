@@ -10,7 +10,7 @@ export default function Layout({ pageTitle, children }) {
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="VulcanWM's GuestBook"
+          content="My Code"
         />
 
         <Head>
