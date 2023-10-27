@@ -3,6 +3,10 @@ import Link from 'next/link'
 import Image from 'next/image';
 import styled from 'styled-components'
 import bgui from '../public/group4.png';
+import { login, onAuthStateChanged } from '../src/lib/firebase/auth';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export const StyledHeading = styled.h1`
   font-size: 5rem;
@@ -22,8 +26,19 @@ export const StyledHeading = styled.h1`
   text-shadow: none;
 `;
 
-export default function SignupPage( {username} ) {
-    
+export default function Login( {username} ) {
+    const Router = useRouter();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    useEffect(()=>{
+        onAuthStateChanged(async (user)=>{
+            if (user) {
+                Router.push("/uploader");
+            }
+        })
+    }, []);
+
     return (
         <Layout pageTitle="Login" >
             <Link href="/"><span className='homeButton'>Home</span></Link><br/>   
@@ -40,9 +55,9 @@ export default function SignupPage( {username} ) {
                 <h2 className='formTitle'><StyledHeading>Log In</StyledHeading></h2>
                 <form action='/api/signup' className='form-content' method='POST'>
                     <input minLength="3" name="username" id="username" type="text" placeholder='Username' required></input><br/>
-                    <input minLength="3" name="email" id="email" type="email" placeholder='Email' required></input><br/>
-                    <input minLength="5" name="password" id="password" type="password" placeholder='Password' required></input><br/>                    
-                    <input type="submit" className='sbmt-btn' value="Log In"/>
+                    <input minLength="3" name="email" id="email" value={email} onChange={(event) => setEmail(event.currentTarget.value)} type="email" placeholder='Email' required></input><br/>
+                    <input minLength="5" name="password" id="password" value={password} onChange={(event) => setPassword(event.currentTarget.value)} type="password" placeholder='Password' required></input><br/>                    
+                    <input type="submit" className='sbmt-btn' onClick={login(email, password)} value="Log In"/>
                 </form>
             </div>
             <style jsx>{`

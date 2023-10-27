@@ -1,8 +1,15 @@
 import Layout from '../components/layout'
 import Link from 'next/link'
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import styled from 'styled-components'
 import bgui from '../public/group4.png';
+import { register ,onAuthStateChanged } from '../src/lib/firebase/auth';
+import { getAuth } from "firebase/auth";
+import React,{ useState,useEffect } from 'react';
+import { collection, getDoc, doc } from 'firebase/firestore';
+import {signInWithGoogle, signOut } from '../src/lib/firebase/auth'
+import { db } from '../src/lib/firebase/config';
 
 export const StyledHeading = styled.h1`
   font-size: 5rem;
@@ -22,8 +29,34 @@ export const StyledHeading = styled.h1`
   text-shadow: none;
 `;
 
-export default function SignupPage( {username} ) {
+export default function SignupPage( {} ) {
+    const Router = useRouter()
+    //const db = firebase.firestore();
+    const [uname,setUname] = useState("");
+    const [email,setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [age, setAge] = useState(null);
+    const[income,setIncome] = useState(null);
+    const [state , setState] = useState("");
+    const auth = getAuth();
     
+
+      async function handleSubmit(e){
+        e.preventDefault();
+        const response = await register(uname,email,password,age,income,state);
+        if(response){
+            Router.push("/uploader");            
+        }
+      }
+
+      useEffect(()=>{
+        onAuthStateChanged(async (user) => {
+            if(user){
+                Router.push("/uploader");
+            }
+        });
+      },[]);
+
     return (
         <Layout pageTitle="Signup" >
             <Link href="/"><span className='homeButton'>Home</span></Link><br/>    
@@ -39,10 +72,11 @@ export default function SignupPage( {username} ) {
             <div className='form-container'> 
                 <h2 className='formTitle'><StyledHeading>Sign up</StyledHeading></h2>
                 <form action='/api/signup' className='form-content' method='POST'>
-                    <input minLength="3" name="username" id="username" type="text" placeholder='Username' required></input><br/>
-                    <input maxLength="3" name="age" id="age" type="number" placeholder='age' required></input><br/>
+                    <input minLength="3"  value={uname} onChange={(event) => setUname(event.currentTarget.value)} name="username" id="username" type="text" placeholder='Username' required></input><br/>
+                    <input maxLength="3" value={age} onChange={(event) => setAge(event.currentTarget.value)} name="age" id="age" type="number" placeholder='Age' required></input><br/>
+                    <input value={income} onChange={(event) => setIncome(event.currentTarget.value)} name="income" id="income" type="number" placeholder='Income' required></input><br/>
                     <label for="state">State: </label>
-                    <select id="state" name="state">
+                    <select id="state" name="state" value={state} onChange={(event) => setState(event.currentTarget.value)} >
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                         <option value="Assam">Assam</option>
@@ -72,10 +106,10 @@ export default function SignupPage( {username} ) {
                         <option value="Uttarakhand">Uttarakhand</option>
                         <option value="West Bengal">West Bengal</option>
                     </select><br/>
-                    <input minLength="3" name="email" id="email" type="email" placeholder='Email' required></input><br/>
-                    <input minLength="5" name="password" id="password" type="password" placeholder='Password' required></input><br/>
+                    <input minLength="3" name="email" id="email" value={email} onChange={(event) => setEmail(event.currentTarget.value)} type="email" placeholder='Email' required></input><br/>
+                    <input minLength="5" name="password" id="password" value={password} onChange={(event) => setPassword(event.currentTarget.value)} type="password" placeholder='Password' required></input><br/>
                     <input minLength="5" name="passwordagain" id="passwordagain" type="password" placeholder='Confirm Password' required></input><br/>
-                    <input type="submit" className='sbmt-btn' value="Sign Up"/>
+                    <input type="submit" onClick={handleSubmit} className='sbmt-btn' value="Sign Up"/>
                 </form>
             </div>
             <style jsx>{`

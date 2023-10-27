@@ -4,8 +4,13 @@ import Image from 'next/image';
 import styled from 'styled-components'
 import Head from "next/head";
 import bgui from '../public/group4.png';
+import { useRouter } from "next/router";
 import { ChangeEvent, MouseEvent } from "react";
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
+import { signOut } from "../src/lib/firebase/auth";
+import { onAuthStateChanged } from "../src/lib/firebase/auth";
+import { db } from '../src/lib/firebase/config'
+import { collection,getDoc,doc } from "firebase/firestore";
 
 
 export const StyledHeading = styled.h1`
@@ -27,51 +32,74 @@ export const StyledHeading = styled.h1`
 `;  
 
 
+
+
 export default function Uploader(){
 
-    const [file, setFile] = useState(null);
-    const [previewUrl, setPreviewUrl] = useState(null);
+  const Router = useRouter();
+  const [user, setUser] = useState(null);
 
-    const onFileUploadChange = (e) => {
-    const fileInput = e.target;
+  useEffect(() => {
+    const unlisten = onAuthStateChanged(async (authUser) => {
+      if (authUser) {
+        try {
+          const docSnap = await getDoc(doc(db, "user-data", authUser.uid));
+          setUser(docSnap.data());
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      } else {
+        Router.push("/");
+      }
+    });
 
-    if (!fileInput.files) {
-      alert("No file was chosen");
-      return;
-    }
+    return () => {
+      unlisten(); // Clean up the listener when the component unmounts
+    };
+  }, [Router, db]);
+  //   const [file, setFile] = useState(null);
+  //   const [previewUrl, setPreviewUrl] = useState(null);
 
-    if (!fileInput.files || fileInput.files.length === 0) {
-      alert("Files list is empty");
-      return;
-    }
+  //   const onFileUploadChange = (e) => {
+  //   const fileInput = e.target;
 
-    const file = fileInput.files[0];
-    console.log(file);
-    console.log(file.type)
+  //   if (!fileInput.files) {
+  //     alert("No file was chosen");
+  //     return;
+  //   }
 
-    /** File validation */
-    if (!file.type.startsWith("image")) {
-      alert("Please select a valid image");
-      return;
-    }
+  //   if (!fileInput.files || fileInput.files.length === 0) {
+  //     alert("Files list is empty");
+  //     return;
+  //   }
+
+  //   const file = fileInput.files[0];
+  //   console.log(file);
+  //   console.log(file.type)
+
+  //   /** File validation */
+  //   if (!file.type.startsWith("image")) {
+  //     alert("Please select a valid image");
+  //     return;
+  //   }
     
 
-    /** Setting file state */
-    setFile(file);
-    setPreviewUrl(URL.createObjectURL(file));
-    console.log(previewUrl)
-    e.currentTarget.type = "text";
-    e.currentTarget.type = "file";
-  };
+  //   /** Setting file state */
+  //   setFile(file);
+  //   setPreviewUrl(URL.createObjectURL(file));
+  //   console.log(previewUrl)
+  //   e.currentTarget.type = "text";
+  //   e.currentTarget.type = "file";
+  // };
 
-  const onCancelFile = (e) => {
-    e.preventDefault();
-    console.log("From onCancelFile");
-  };
+  // const onCancelFile = (e) => {
+  //   e.preventDefault();
+  //   console.log("From onCancelFile");
+  // };
 
-  const onUploadFile = (e) => {
-    e.preventDefault();
-  };
+  // const onUploadFile = (e) => {
+  //   e.preventDefault();
+  // };
 
     return(       
 
@@ -91,21 +119,29 @@ export default function Uploader(){
                 <meta name="description" content="file uploader"></meta>                
             </Head>
             <main>
-
+                
+                  <button className="signout-btn" onClick={signOut}>Sign Out</button>
                     <StyledHeading><h1 className="titles">Upload Your Files</h1></StyledHeading>
                 <div className="container">
                         <form action="">
                             <input minLength="3" name="form-name" id="form-name" type="text" placeholder='Form-Name' required></input><br/>
                             <input minLength="3" name="form-id" id="form-id" type="text" placeholder='Form-ID' required></input><br/>
-                            <input className="choose-file-btn" onChange={onFileUploadChange} name="file" type="file"></input><br/>
-                            <input className="upload-files-btn" disabled={!previewUrl} onClick={onUploadFile} name="upload" type="submit"></input>
-                            <input className="upload-files-btn" disabled={!previewUrl} onClick={onCancelFile} name="Cancel" type="submit" value="Cancel"></input>
+                            <input className="choose-file-btn"  name="file" type="file"></input><br/>
+                            <input className="upload-files-btn" name="upload" type="submit"></input>
+                            <input className="upload-files-btn" name="Cancel" type="submit" value="Cancel"></input>
                         </form>
                 </div>        
                 
                 <style jsx>{`
                     .titles{
                         padding-left: 50rem;
+                    }
+                    .signout-btn{
+                        padding:0.6rem 2rem !important;
+                        margin-top: 10px !important;
+                        border-radius: 10px !important;
+                        border: solid white 1px !important;
+                        margin-left: 20px !important;
                     }
                     .container{
                         display: flex;

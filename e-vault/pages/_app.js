@@ -1,7 +1,8 @@
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import React, { useState, useEffect } from "react";
+
 
 const theme = {
   colors: {
