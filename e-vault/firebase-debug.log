@@ -1,28 +1,28 @@
-[debug] [2023-10-27T14:14:20.499Z] ----------------------------------------------------------------------
-[debug] [2023-10-27T14:14:20.500Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\BHARGAV\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only hosting
-[debug] [2023-10-27T14:14:20.501Z] CLI Version:   12.7.0
-[debug] [2023-10-27T14:14:20.501Z] Platform:      win32
-[debug] [2023-10-27T14:14:20.501Z] Node Version:  v21.1.0
-[debug] [2023-10-27T14:14:20.501Z] Time:          Fri Oct 27 2023 19:44:20 GMT+0530 (India Standard Time)
-[debug] [2023-10-27T14:14:20.501Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T18:13:35.829Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T18:13:35.831Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\BHARGAV\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only hosting
+[debug] [2023-10-27T18:13:35.831Z] CLI Version:   12.7.0
+[debug] [2023-10-27T18:13:35.832Z] Platform:      win32
+[debug] [2023-10-27T18:13:35.832Z] Node Version:  v21.1.0
+[debug] [2023-10-27T18:13:35.832Z] Time:          Fri Oct 27 2023 23:43:35 GMT+0530 (India Standard Time)
+[debug] [2023-10-27T18:13:35.832Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2023-10-27T14:14:20.597Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2023-10-27T14:14:20.597Z] > authorizing via signed-in user (manaspatil0967@gmail.com)
+[debug] [2023-10-27T18:13:35.912Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T18:13:35.913Z] > authorizing via signed-in user (manaspatil0967@gmail.com)
 [info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
-[debug] [2023-10-27T14:14:20.604Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2023-10-27T14:14:20.604Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2023-10-27T14:14:20.604Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[debug] [2023-10-27T14:14:20.612Z] [hub] writing locator at C:\Users\BHARGAV\AppData\Local\Temp\hub-evault-ea972.json
-[debug] [2023-10-27T14:14:20.629Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972 [none]
-[debug] [2023-10-27T14:14:21.223Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972 200
-[debug] [2023-10-27T14:14:21.223Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972 {"projectId":"evault-ea972","projectNumber":"137572100572","displayName":"Evault","name":"projects/evault-ea972","resources":{"hostingSite":"evault-ea972","realtimeDatabaseInstance":"evault-ea972-default-rtdb","storageBucket":"evault-ea972.appspot.com","locationId":"asia-south1"},"state":"ACTIVE","etag":"1_1a16629c-2d5b-4155-b7f0-fcd9fb382452"}
-[debug] [2023-10-27T14:14:24.488Z] defaultcredentials: writing to file C:\Users\BHARGAV\AppData\Roaming\firebase\manaspatil0967_gmail_com_application_default_credentials.json
-[debug] [2023-10-27T14:14:24.490Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites pageToken=&pageSize=10
-[debug] [2023-10-27T14:14:25.625Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites 200
-[debug] [2023-10-27T14:14:25.626Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites {"sites":[{"name":"projects/evault-ea972/sites/evault-ea972","defaultUrl":"https://evault-ea972.web.app","appId":"1:137572100572:web:5d86fe839ae6ca0d48c719","type":"DEFAULT_SITE"}]}
-[debug] [2023-10-27T14:14:25.626Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config [none]
-[debug] [2023-10-27T14:14:26.959Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config 200
-[debug] [2023-10-27T14:14:26.959Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config {"projectId":"evault-ea972","appId":"1:137572100572:web:5d86fe839ae6ca0d48c719","databaseURL":"https://evault-ea972-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"evault-ea972.appspot.com","locationId":"asia-south1","apiKey":"AIzaSyBdtIn6W20gvPCAG_IjhX45U6oQLi4cbmM","authDomain":"evault-ea972.firebaseapp.com","messagingSenderId":"137572100572","measurementId":"G-LRPVB7ZR27"}
+[debug] [2023-10-27T18:13:35.920Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-27T18:13:35.920Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-27T18:13:35.920Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-10-27T18:13:35.929Z] [hub] writing locator at C:\Users\BHARGAV\AppData\Local\Temp\hub-evault-ea972.json
+[debug] [2023-10-27T18:13:35.947Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972 [none]
+[debug] [2023-10-27T18:13:36.678Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972 200
+[debug] [2023-10-27T18:13:36.678Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972 {"projectId":"evault-ea972","projectNumber":"137572100572","displayName":"Evault","name":"projects/evault-ea972","resources":{"hostingSite":"evault-ea972","realtimeDatabaseInstance":"evault-ea972-default-rtdb","storageBucket":"evault-ea972.appspot.com","locationId":"asia-south1"},"state":"ACTIVE","etag":"1_a97c9baf-ce1e-42af-af01-c44ff2782ecd"}
+[debug] [2023-10-27T18:13:39.557Z] defaultcredentials: writing to file C:\Users\BHARGAV\AppData\Roaming\firebase\manaspatil0967_gmail_com_application_default_credentials.json
+[debug] [2023-10-27T18:13:39.558Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites pageToken=&pageSize=10
+[debug] [2023-10-27T18:13:40.762Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites 200
+[debug] [2023-10-27T18:13:40.762Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites {"sites":[{"name":"projects/evault-ea972/sites/evault-ea972","defaultUrl":"https://evault-ea972.web.app","appId":"1:137572100572:web:5d86fe839ae6ca0d48c719","type":"DEFAULT_SITE"}]}
+[debug] [2023-10-27T18:13:40.762Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config [none]
+[debug] [2023-10-27T18:13:42.005Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config 200
+[debug] [2023-10-27T18:13:42.005Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config {"projectId":"evault-ea972","appId":"1:137572100572:web:5d86fe839ae6ca0d48c719","databaseURL":"https://evault-ea972-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"evault-ea972.appspot.com","locationId":"asia-south1","apiKey":"AIzaSyBdtIn6W20gvPCAG_IjhX45U6oQLi4cbmM","authDomain":"evault-ea972.firebaseapp.com","messagingSenderId":"137572100572","measurementId":"G-LRPVB7ZR27"}
 [info] 
    Thank you for trying our early preview of Next.js support on Firebase Hosting.
    During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
@@ -34,7 +34,7 @@
    We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
 
 [warn] !  This integration expects Node version 16, 18, or 20. You're running version 21, problems may be encountered. 
-[debug] [2023-10-27T14:14:41.855Z] [web frameworks] effective firebase.json:  {
+[debug] [2023-10-27T18:13:53.577Z] [web frameworks] effective firebase.json:  {
   "hosting": [
     {
       "source": ".",
@@ -64,7 +64,7 @@
           "headers": [
             {
               "key": "Set-Cookie",
-              "value": "__FIREBASE_DEFAULTS__=eyJjb25maWciOnsicHJvamVjdElkIjoiZXZhdWx0LWVhOTcyIiwiYXBwSWQiOiIxOjEzNzU3MjEwMDU3Mjp3ZWI6NWQ4NmZlODM5YWU2Y2EwZDQ4YzcxOSIsImRhdGFiYXNlVVJMIjoiaHR0cHM6Ly9ldmF1bHQtZWE5NzItZGVmYXVsdC1ydGRiLmFzaWEtc291dGhlYXN0MS5maXJlYmFzZWRhdGFiYXNlLmFwcCIsInN0b3JhZ2VCdWNrZXQiOiJldmF1bHQtZWE5NzIuYXBwc3BvdC5jb20iLCJsb2NhdGlvbklkIjoiYXNpYS1zb3V0aDEiLCJhcGlLZXkiOiJBSXphU3lCZHRJbjZXMjBndlBDQUdfSWpoWDQ1VTZvUUxpNGNibU0iLCJhdXRoRG9tYWluIjoiZXZhdWx0LWVhOTcyLmZpcmViYXNlYXBwLmNvbSIsIm1lc3NhZ2luZ1NlbmRlcklkIjoiMTM3NTcyMTAwNTcyIiwibWVhc3VyZW1lbnRJZCI6IkctTFJQVkI3WlIyNyJ9LCJfYXV0aFRva2VuU3luY1VSTCI6Ii9fX3Nlc3Npb24ifQ; SameSite=Strict; Expires=2025-09-21T00:54:41.855Z; Path=/;"
+              "value": "__FIREBASE_DEFAULTS__=eyJjb25maWciOnsicHJvamVjdElkIjoiZXZhdWx0LWVhOTcyIiwiYXBwSWQiOiIxOjEzNzU3MjEwMDU3Mjp3ZWI6NWQ4NmZlODM5YWU2Y2EwZDQ4YzcxOSIsImRhdGFiYXNlVVJMIjoiaHR0cHM6Ly9ldmF1bHQtZWE5NzItZGVmYXVsdC1ydGRiLmFzaWEtc291dGhlYXN0MS5maXJlYmFzZWRhdGFiYXNlLmFwcCIsInN0b3JhZ2VCdWNrZXQiOiJldmF1bHQtZWE5NzIuYXBwc3BvdC5jb20iLCJsb2NhdGlvbklkIjoiYXNpYS1zb3V0aDEiLCJhcGlLZXkiOiJBSXphU3lCZHRJbjZXMjBndlBDQUdfSWpoWDQ1VTZvUUxpNGNibU0iLCJhdXRoRG9tYWluIjoiZXZhdWx0LWVhOTcyLmZpcmViYXNlYXBwLmNvbSIsIm1lc3NhZ2luZ1NlbmRlcklkIjoiMTM3NTcyMTAwNTcyIiwibWVhc3VyZW1lbnRJZCI6IkctTFJQVkI3WlIyNyJ9LCJfYXV0aFRva2VuU3luY1VSTCI6Ii9fX3Nlc3Npb24ifQ; SameSite=Strict; Expires=2025-09-21T04:53:53.576Z; Path=/;"
             }
           ]
         }
@@ -94,25 +94,25 @@
     }
   ]
 }
-[debug] [2023-10-27T14:14:41.859Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2023-10-27T14:14:41.859Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2023-10-27T14:14:41.859Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[debug] [2023-10-27T18:13:53.580Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-27T18:13:53.581Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-10-27T18:13:53.581Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
 [warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage\u001b[22m"}}
 [warn] !  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to C:\Users\BHARGAV\AppData\Roaming\firebase\manaspatil0967_gmail_com_application_default_credentials.json. Non-emulated services will access production using these credentials. Be careful! {"metadata":{"emulator":{"name":"functions"},"message":"Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to C:\\Users\\BHARGAV\\AppData\\Roaming\\firebase\\manaspatil0967_gmail_com_application_default_credentials.json. Non-emulated services will access production using these credentials. Be careful!"}}
-[debug] [2023-10-27T14:14:41.864Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/adminSdkConfig [none]
-[debug] [2023-10-27T14:14:42.422Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/adminSdkConfig 200
-[debug] [2023-10-27T14:14:42.422Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/adminSdkConfig {"projectId":"evault-ea972","databaseURL":"https://evault-ea972-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"evault-ea972.appspot.com","locationId":"asia-south1"}
-[debug] [2023-10-27T14:14:42.446Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites 
-[debug] [2023-10-27T14:14:43.501Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites 200
-[debug] [2023-10-27T14:14:43.501Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites {"sites":[{"name":"projects/evault-ea972/sites/evault-ea972","defaultUrl":"https://evault-ea972.web.app","appId":"1:137572100572:web:5d86fe839ae6ca0d48c719","type":"DEFAULT_SITE"}]}
-[debug] [2023-10-27T14:14:43.501Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config [none]
-[debug] [2023-10-27T14:14:44.952Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config 200
-[debug] [2023-10-27T14:14:44.952Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config {"projectId":"evault-ea972","appId":"1:137572100572:web:5d86fe839ae6ca0d48c719","databaseURL":"https://evault-ea972-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"evault-ea972.appspot.com","locationId":"asia-south1","apiKey":"AIzaSyBdtIn6W20gvPCAG_IjhX45U6oQLi4cbmM","authDomain":"evault-ea972.firebaseapp.com","messagingSenderId":"137572100572","measurementId":"G-LRPVB7ZR27"}
+[debug] [2023-10-27T18:13:53.585Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/adminSdkConfig [none]
+[debug] [2023-10-27T18:13:54.104Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/adminSdkConfig 200
+[debug] [2023-10-27T18:13:54.104Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/adminSdkConfig {"projectId":"evault-ea972","databaseURL":"https://evault-ea972-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"evault-ea972.appspot.com","locationId":"asia-south1"}
+[debug] [2023-10-27T18:13:54.118Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites 
+[debug] [2023-10-27T18:13:55.188Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites 200
+[debug] [2023-10-27T18:13:55.189Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/evault-ea972/sites {"sites":[{"name":"projects/evault-ea972/sites/evault-ea972","defaultUrl":"https://evault-ea972.web.app","appId":"1:137572100572:web:5d86fe839ae6ca0d48c719","type":"DEFAULT_SITE"}]}
+[debug] [2023-10-27T18:13:55.189Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config [none]
+[debug] [2023-10-27T18:13:56.055Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config 200
+[debug] [2023-10-27T18:13:56.055Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/evault-ea972/webApps/1:137572100572:web:5d86fe839ae6ca0d48c719/config {"projectId":"evault-ea972","appId":"1:137572100572:web:5d86fe839ae6ca0d48c719","databaseURL":"https://evault-ea972-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"evault-ea972.appspot.com","locationId":"asia-south1","apiKey":"AIzaSyBdtIn6W20gvPCAG_IjhX45U6oQLi4cbmM","authDomain":"evault-ea972.firebaseapp.com","messagingSenderId":"137572100572","measurementId":"G-LRPVB7ZR27"}
 [info] i  hosting[evault-ea972]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
 [info] +  hosting[evault-ea972]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
 [info] i  functions: Watching "C:\Users\BHARGAV\Documents\E-vault\e-vault\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\BHARGAV\\Documents\\E-vault\\e-vault\\functions\" for Cloud Functions..."}}
-[debug] [2023-10-27T14:14:44.973Z] Validating nodejs source
-[debug] [2023-10-27T14:14:46.279Z] > [functions] package.json contents: {
+[debug] [2023-10-27T18:13:56.079Z] Validating nodejs source
+[debug] [2023-10-27T18:13:57.032Z] > [functions] package.json contents: {
   "name": "functions",
   "scripts": {
     "build": "tsc",
@@ -137,60 +137,11 @@
   },
   "private": true
 }
-[debug] [2023-10-27T14:14:46.279Z] Building nodejs source
-[debug] [2023-10-27T14:14:46.279Z] Failed to find version of module node: reached end of search path C:\Users\BHARGAV\Documents\E-vault\e-vault\functions\node_modules
+[debug] [2023-10-27T18:13:57.033Z] Building nodejs source
+[debug] [2023-10-27T18:13:57.033Z] Failed to find version of module node: reached end of search path C:\Users\BHARGAV\Documents\E-vault\e-vault\functions\node_modules
 [warn] !  functions: Your requested "node" version "18" doesn't match your global version "21". Using node@21 from host. 
-[debug] [2023-10-27T14:14:46.281Z] Could not find functions.yaml. Must use http discovery
-[debug] [2023-10-27T14:14:46.289Z] Found firebase-functions binary at 'C:\Users\BHARGAV\Documents\E-vault\e-vault\functions\node_modules\.bin\firebase-functions'
-[info] Serving at port 8744
+[debug] [2023-10-27T18:13:57.035Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-10-27T18:13:57.040Z] Found firebase-functions binary at 'C:\Users\BHARGAV\Documents\E-vault\e-vault\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8051
 
-[debug] [2023-10-27T14:14:46.709Z] Got response from /__/functions.yaml {"endpoints":{"createUserDocument":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","eventFilters":{"resource":"projects/evault-ea972"},"retry":false},"labels":{},"entryPoint":"createUserDocument"}},"specVersion":"v1alpha1","requiredAPIs":[]}
-[info] shutdown requested via /__/quitquitquit
-
-[info] +  functions: Loaded functions definitions from source: createUserDocument. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: createUserDocument."}}
-[debug] [2023-10-27T14:14:51.736Z] addAuthTrigger {"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/evault-ea972"}}
-[info] +  functions[us-central1-createUserDocument]: auth function initialized. {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mauth\u001b[22m function initialized."}}
-[info] i  functions: Watching "C:\Users\BHARGAV\Documents\E-vault\e-vault\.firebase\evault-ea972\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\BHARGAV\\Documents\\E-vault\\e-vault\\.firebase\\evault-ea972\\functions\" for Cloud Functions..."}}
-[debug] [2023-10-27T14:14:51.737Z] Validating nodejs source
-[debug] [2023-10-27T14:14:52.727Z] > [functions] package.json contents: {
-  "main": "server.js",
-  "dependencies": {
-    "firebase-frameworks": "^0.10.4",
-    "firebase-functions": "^4.3.0",
-    "firebase-admin": "^11.0.1"
-  },
-  "engines": {
-    "node": "20"
-  }
-}
-[debug] [2023-10-27T14:14:52.727Z] Building nodejs source
-[debug] [2023-10-27T14:14:52.727Z] Failed to find version of module node: reached end of search path C:\Users\BHARGAV\Documents\E-vault\e-vault\.firebase\evault-ea972\functions\node_modules
-[warn] !  functions: Your requested "node" version "20" doesn't match your global version "21". Using node@21 from host. 
-[info] i  functions: Loaded environment variables from .env. 
-[debug] [2023-10-27T14:14:52.730Z] Could not find functions.yaml. Must use http discovery
-[debug] [2023-10-27T14:14:52.736Z] Found firebase-functions binary at 'C:\Users\BHARGAV\Documents\E-vault\e-vault\.firebase\evault-ea972\functions\node_modules\.bin\firebase-functions'
-[info] Serving at port 8077
-
-[debug] [2023-10-27T14:14:53.088Z] Got response from /__/functions.yaml {"endpoints":{"ssrevaultea972":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","region":["asia-east1"],"labels":{},"httpsTrigger":{},"entryPoint":"ssrevaultea972"}},"specVersion":"v1alpha1","requiredAPIs":[]}
-[info] shutdown requested via /__/quitquitquit
-
-[info] +  functions: Loaded functions definitions from source: ssrevaultea972. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: ssrevaultea972."}}
-[info] +  functions[asia-east1-ssrevaultea972]: http function initialized (http://127.0.0.1:5001/evault-ea972/asia-east1/ssrevaultea972). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/evault-ea972/asia-east1/ssrevaultea972)."}}
-[info] 
-┌─────────────────────────────────────────────────────────────┐
-│ ✔  All emulators ready! It is now safe to connect your app. │
-└─────────────────────────────────────────────────────────────┘
-
-┌───────────┬────────────────┐
-│ Emulator  │ Host:Port      │
-├───────────┼────────────────┤
-│ Functions │ 127.0.0.1:5001 │
-├───────────┼────────────────┤
-│ Hosting   │ 127.0.0.1:5000 │
-└───────────┴────────────────┘
-  Emulator Hub running at 127.0.0.1:4400
-  Other reserved ports: 4500
-
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
- 
-[info] i  hosting: 127.0.0.1 - - [27/Oct/2023:14:20:00 +0000] "GET /signup HTTP/1.1" - - "http://127.0.0.1:5000/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [27/Oct/2023:14:20:00 +0000] \"GET /signup HTTP/1.1\" - - \"http://127.0.0.1:5000/signup\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36\""}}
+[debug] [2023-10-27T18:13:57.439Z] Got response from /__/functions.yaml {"endpoints":{"createUserDocument":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","eventFilters":{"resource":"projects/evault-ea972"},"retry":false},"labels":{},"entryPoint":"createUserDocument"}},"specVersion":"v1alpha1","requiredAPIs":[]}

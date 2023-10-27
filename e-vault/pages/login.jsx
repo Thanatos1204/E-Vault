@@ -31,13 +31,21 @@ export default function Login( {username} ) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    useEffect(()=>{
-        onAuthStateChanged(async (user)=>{
-            if (user) {
-                Router.push("/uploader");
-            }
-        })
-    }, []);
+    async function handleSubmit(e){
+        e.preventDefault();
+        const response = await login(email,password);
+        if(response){
+            Router.push("/uploader");            
+        }
+      }
+
+    //   useEffect(()=>{
+    //     onAuthStateChanged(async (user) => {
+    //         if(user){
+    //             Router.push("/uploader");
+    //         }
+    //     });
+    //   },[]);
 
     return (
         <Layout pageTitle="Login" >
@@ -57,7 +65,7 @@ export default function Login( {username} ) {
                     <input minLength="3" name="username" id="username" type="text" placeholder='Username' required></input><br/>
                     <input minLength="3" name="email" id="email" value={email} onChange={(event) => setEmail(event.currentTarget.value)} type="email" placeholder='Email' required></input><br/>
                     <input minLength="5" name="password" id="password" value={password} onChange={(event) => setPassword(event.currentTarget.value)} type="password" placeholder='Password' required></input><br/>                    
-                    <input type="submit" className='sbmt-btn' onClick={login(email, password)} value="Log In"/>
+                    <input type="submit" className='sbmt-btn' onClick={handleSubmit} value="Log In"/>
                 </form>
             </div>
             <style jsx>{`

@@ -109,7 +109,10 @@ export default function SignupPage( {} ) {
                     <input minLength="3" name="email" id="email" value={email} onChange={(event) => setEmail(event.currentTarget.value)} type="email" placeholder='Email' required></input><br/>
                     <input minLength="5" name="password" id="password" value={password} onChange={(event) => setPassword(event.currentTarget.value)} type="password" placeholder='Password' required></input><br/>
                     <input minLength="5" name="passwordagain" id="passwordagain" type="password" placeholder='Confirm Password' required></input><br/>
-                    <input type="submit" onClick={handleSubmit} className='sbmt-btn' value="Sign Up"/>
+                    <input type="submit" onClick={handleSubmit} className='sbmt-btn' value="Sign Up"/>                    
+                </form>
+                <form>
+                    <input type="submit" onClick={signInWithGoogle} className='sbmt-btn' value="Sign Up With Google"/>
                 </form>
             </div>
             <style jsx>{`

@@ -11,6 +11,7 @@ import { signOut } from "../src/lib/firebase/auth";
 import { onAuthStateChanged } from "../src/lib/firebase/auth";
 import { db } from '../src/lib/firebase/config'
 import { collection,getDoc,doc } from "firebase/firestore";
+import { updatefile } from "../src/lib/firebase/auth";
 
 
 export const StyledHeading = styled.h1`
@@ -38,25 +39,44 @@ export default function Uploader(){
 
   const Router = useRouter();
   const [user, setUser] = useState(null);
+  const [formname,setFormname] = useState("");
+  const [formID, setFormID] = useState("");
+  const [file, setFile] = useState(null);
 
-  useEffect(() => {
-    const unlisten = onAuthStateChanged(async (authUser) => {
-      if (authUser) {
-        try {
-          const docSnap = await getDoc(doc(db, "user-data", authUser.uid));
-          setUser(docSnap.data());
-        } catch (error) {
-          console.error('Error fetching user data:', error);
+  async function handleSubmit(e){
+    e.preventDefault();
+    const response = await updatefile(formname,formID);
+    if(response){
+        Router.push("/uploader");            
+    }
+  }
+
+  useEffect(()=>{
+    onAuthStateChanged(async (user) => {
+        if(user){
+            Router.push("/uploader");
         }
-      } else {
-        Router.push("/");
-      }
     });
+  },[]);
 
-    return () => {
-      unlisten(); // Clean up the listener when the component unmounts
-    };
-  }, [Router, db]);
+  // useEffect(() => {
+  //   const unlisten = onAuthStateChanged(async (authUser) => {
+  //     if (authUser) {
+  //       try {
+  //         const docSnap = await getDoc(doc(db, "user-data", authUser.uid));
+  //         setUser(docSnap.data());
+  //       } catch (error) {
+  //         console.error('Error fetching user data:', error);
+  //       }
+  //     } else {
+  //       Router.push("/");
+  //     }
+  //   });
+
+  //   return () => {
+  //     unlisten(); // Clean up the listener when the component unmounts
+  //   };
+  // }, [Router,db,user]);
   //   const [file, setFile] = useState(null);
   //   const [previewUrl, setPreviewUrl] = useState(null);
 
@@ -124,10 +144,10 @@ export default function Uploader(){
                     <StyledHeading><h1 className="titles">Upload Your Files</h1></StyledHeading>
                 <div className="container">
                         <form action="">
-                            <input minLength="3" name="form-name" id="form-name" type="text" placeholder='Form-Name' required></input><br/>
-                            <input minLength="3" name="form-id" id="form-id" type="text" placeholder='Form-ID' required></input><br/>
-                            <input className="choose-file-btn"  name="file" type="file"></input><br/>
-                            <input className="upload-files-btn" name="upload" type="submit"></input>
+                            <input minLength="3" name="form-name" value={formname} onChange={(event) => setFormname(event.currentTarget.value)} id="form-name" type="text" placeholder='Form-Name' required></input><br/>
+                            <input minLength="3" name="form-id" value={formID} onChange={(event) => setFormID(event.currentTarget.value)} id="form-id" type="text" placeholder='Form-ID' required></input><br/>
+                            <input className="choose-file-btn" value={file}  name="file" type="file"></input><br/>
+                            <input className="upload-files-btn" onClick={handleSubmit} name="upload" type="submit"></input>
                             <input className="upload-files-btn" name="Cancel" type="submit" value="Cancel"></input>
                         </form>
                 </div>        

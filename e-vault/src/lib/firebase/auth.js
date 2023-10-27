@@ -7,16 +7,16 @@ export function onAuthStateChanged(callback) {
     return auth.onAuthStateChanged(callback);
 }
 
-export async function register(name,email,password,age,income,state){
+export async function register(Name,email,password,Age,Income,State){
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         if(userCredential && userCredential.user){
            const docRef = await addDoc(collection(db,"users"),{
-                age: age,
-                email: email,
-                income: income,
-                state: state,
-                name: name,
+                Age: Age,                
+                Income: Income,
+                Name: Name,
+                State: State,
+                
             });
             console.log("ID: ",docRef.id)
         }
@@ -25,7 +25,28 @@ export async function register(name,email,password,age,income,state){
     }
     return true;
 }
-       
+
+export async function updatefile(formname,formID){
+    try {     
+            console.log("I AM READY!")
+           const docRef = await addDoc(collection(db,"forms"),
+           {
+                formname: formname,
+                formID: formID
+
+           });
+          
+            console.log("ID: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",docRef.id)
+        }catch (error) {
+             console.log("I failed....",error);
+             console.log("I failed....",error);
+             console.log("I failed....",error);
+             console.log("I failed....",error);
+             console.log("I failed....",error);
+             console.log("I failed....",error);
+    }
+    return true;
+}
                
             
             
@@ -52,6 +73,7 @@ export async function signOut() {
 export async function login(email, password){
     try {
         const res = await signInWithEmailAndPassword(email, password);
+        console.log("Pappu Pass");
         return res;
     } catch (e){
         return e;
