@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styled from 'styled-components'
 import Head from "next/head";
 import bgui from '../public/group4.png';
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { ChangeEvent, MouseEvent } from "react";
 import React, { useState , useEffect } from 'react';
@@ -134,6 +135,17 @@ export default function Uploader(){
                 <meta name="description" content="file uploader"></meta>                
             </Head>
             <main>
+
+            <div className='signout-btn'>
+              <Link href="/schemes">
+                <p className='schemes'> View Schemes </p>
+              </Link>
+            </div>
+            <div className='signout-btn'>
+              <Link href="/certifcategen">
+                <p className='schemes'> Generate Certificates </p>
+              </Link>
+            </div>
                 
                   <button className="signout-btn" onClick={handleSubmit3}>Sign Out</button>
                     <StyledHeading><h1 className="titles">Upload Your Files</h1></StyledHeading>
@@ -148,6 +160,9 @@ export default function Uploader(){
                 </div>        
                 
                 <style jsx>{`
+                    .schemes{
+                        text-align: center;  
+                    }
                     .titles{
                         padding-left: 50rem;
                     }

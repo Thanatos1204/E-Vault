@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import { addDoc,setDoc,doc, collection } from "firebase/firestore";
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import { storage } from './config';
-
+import { binaryToVideo } from '../../../script4';
 export function onAuthStateChanged(callback) {
     return auth.onAuthStateChanged(callback);
 }
@@ -38,9 +38,14 @@ export async function updatefile(file,formname,formID){
 
            });         
             console.log("ID: ",docRef.id)
-            const storageRef = ref(storage, `files/${formID}.jpg`);  
-            await uploadBytes(storageRef, file);
-            console.log(file.type);
+            const video = await binaryToVideo(file).then((video) => {
+                console.log("Generated video");
+            }).catch((e)=> {
+                console.error(e);
+            });
+            const storageRef = ref(storage, `files/${formID}.mp4`);  
+            await uploadBytes(storageRef, video);
+            console.log(video.type);
             console.log('File uploaded to storage successfully');  
   
         }catch (error) {

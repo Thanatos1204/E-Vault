@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "canvas": "^2.11.2",
     "firebase": "^10.5.2",
     "firebase-admin": "^11.11.0",
     "firebase-functions": "^4.4.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs": "^0.0.1-security",
     "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18",

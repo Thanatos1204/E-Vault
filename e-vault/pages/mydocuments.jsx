@@ -55,7 +55,7 @@ export default function Mydocuments(){
   
       fetchData();
     }, []);
-
+    console.log(userData);
     return (
         <Layout pageTitle="MyDocuments" >
             <Link href="/"><span className='homeButton'>Home</span></Link><br/>    
