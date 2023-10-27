@@ -35,19 +35,46 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet"/>
       </Head>
       <section className='buttons'>
-          <div className='regi-btns'>
-          <Link href="/signup">
-            <div className='signUp' > Sign Up </div>
-          </Link>
-          <Link href="/login">
-            <div className='logIn'> Log In </div>
-          </Link>  
+        <div className='button-container'>
+          <div className='right-regi-btns'>
+              <Link href="/schemes">
+                <div className='schemes' > View Schemes </div>
+              </Link>
           </div>
+            <div className='left-regi-btns'>
+            <Link href="/signup">
+              <div className='signUp' > Sign Up </div>
+            </Link>
+            <Link href="/login">
+              <div className='logIn'> Log In </div>
+            </Link>  
+            </div>
+        </div>    
           
-      <style jsx>{`       
-        .regi-btns{
+      <style jsx>{`
+
+        .button-container{
+          display: flex;
+          justify-content: flex-start;
+        }
+
+        .right-regi-btns{
+          padding-right: 70rem;
+          justify-self: center;
+          text-align: center;
+        }
+        .schemes{
+          padding:0.6rem 2rem;
+          margin-top: 10px;
+          border-radius: 10px;
+          border: solid white 1px;
+          
+        }
+        .left-regi-btns{
             display:flex;
-            justify-content: flex-end;            
+            justify-content: flex-end;
+            justify-self: center;
+            text-align: center;            
           }
         .signUp{
           padding:0.6rem 2rem;

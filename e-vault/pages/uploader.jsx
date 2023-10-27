@@ -1,7 +1,12 @@
 import { NextPage } from "next";
 import Layout from '../components/layout'
+import Image from 'next/image';
 import styled from 'styled-components'
 import Head from "next/head";
+import bgui from '../public/group4.png';
+import { ChangeEvent, MouseEvent } from "react";
+import React, { useState } from 'react';
+
 
 export const StyledHeading = styled.h1`
   font-size: 5rem;  
@@ -19,11 +24,68 @@ export const StyledHeading = styled.h1`
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   text-shadow: none;
-`;
+`;  
+
 
 export default function Uploader(){
-    return(
+
+    const [file, setFile] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState(null);
+
+    const onFileUploadChange = (e) => {
+    const fileInput = e.target;
+
+    if (!fileInput.files) {
+      alert("No file was chosen");
+      return;
+    }
+
+    if (!fileInput.files || fileInput.files.length === 0) {
+      alert("Files list is empty");
+      return;
+    }
+
+    const file = fileInput.files[0];
+    console.log(file);
+    console.log(file.type)
+
+    /** File validation */
+    if (!file.type.startsWith("image")) {
+      alert("Please select a valid image");
+      return;
+    }
+    
+
+    /** Setting file state */
+    setFile(file);
+    setPreviewUrl(URL.createObjectURL(file));
+    console.log(previewUrl)
+    e.currentTarget.type = "text";
+    e.currentTarget.type = "file";
+  };
+
+  const onCancelFile = (e) => {
+    e.preventDefault();
+    console.log("From onCancelFile");
+  };
+
+  const onUploadFile = (e) => {
+    e.preventDefault();
+  };
+
+    return(       
+
         <Layout pageTitle="Upload">
+
+            <Image
+                src={bgui}
+                layout='fill'
+                objectFit='cover'
+                quality={100}
+                style={{
+                    zIndex: -3,
+                }}
+                ></Image>
             <Head>
                 <title>File Uploader</title>
                 <meta name="description" content="file uploader"></meta>                
@@ -33,8 +95,11 @@ export default function Uploader(){
                     <StyledHeading><h1 className="titles">Upload Your Files</h1></StyledHeading>
                 <div className="container">
                         <form action="">
-                            <input minLength="3" name="username" id="username" type="text" placeholder='Username' required></input><br/>
-                            <input className="choose-file-btn" name="file" type="file"></input>
+                            <input minLength="3" name="form-name" id="form-name" type="text" placeholder='Form-Name' required></input><br/>
+                            <input minLength="3" name="form-id" id="form-id" type="text" placeholder='Form-ID' required></input><br/>
+                            <input className="choose-file-btn" onChange={onFileUploadChange} name="file" type="file"></input><br/>
+                            <input className="upload-files-btn" disabled={!previewUrl} onClick={onUploadFile} name="upload" type="submit"></input>
+                            <input className="upload-files-btn" disabled={!previewUrl} onClick={onCancelFile} name="Cancel" type="submit" value="Cancel"></input>
                         </form>
                 </div>        
                 
@@ -45,14 +110,25 @@ export default function Uploader(){
                     .container{
                         display: flex;
                         justify-content: center;
-                        align-items: center;                       
+                        align-items: center;
+                        font-size: 1.3rem;
+                        padding-top: 7rem;                       
+                    }
+                    .container>form>input{
+                       margin: 1rem;
+                       background-color: black;
+                       color: white;
+                       padding: 0.5rem;
                     }
                     .choose-file-btn{
-                        padding-top: 8rem;
-                        padding-right: 50rem;
-                        padding-left: 1rem;
-                        border: solid white 1px;
-                        padding-bottom: 2rem;
+                        background-color: transparent !important;
+                    }
+                    .upload-files-btn{
+                        padding:0.6rem 2rem !important;
+                        margin-top: 10px !important;
+                        border-radius: 10px !important;
+                        border: solid white 1px !important;
+                        margin-left: 20px !important;
                     }
                 
                 `}</style>
