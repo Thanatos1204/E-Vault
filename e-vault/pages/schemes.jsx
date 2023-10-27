@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function SchemePage() {
     const [schemes, setSchemes] = useState([]);
 
     async function fetchSchemesForUser(userId) {
-        const response = await fetch(`/api/users/${userId}/schemes`);
+        const response = await fetch(`/api/schemes`);
         const data = await response.json();
         setSchemes(data);
       }
 
-      React.useEffect(() => {
+      useEffect(() => {
         fetchSchemesForUser(userId);
       }, [userId]);
       

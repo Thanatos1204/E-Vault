@@ -2,6 +2,8 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { auth,db } from './config'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { addDoc,setDoc,doc, collection } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from 'firebase/storage';
+import { storage } from './config';
 
 export function onAuthStateChanged(callback) {
     return auth.onAuthStateChanged(callback);
@@ -26,7 +28,7 @@ export async function register(Name,email,password,Age,Income,State){
     return true;
 }
 
-export async function updatefile(formname,formID){
+export async function updatefile(file,formname,formID){
     try {     
             console.log("I AM READY!")
            const docRef = await addDoc(collection(db,"forms"),
@@ -34,22 +36,19 @@ export async function updatefile(formname,formID){
                 formname: formname,
                 formID: formID
 
-           });
-          
-            console.log("ID: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",docRef.id)
+           });         
+            console.log("ID: ",docRef.id)
+            const storageRef = ref(storage, `files/${formID}.jpg`);  
+            await uploadBytes(storageRef, file);
+            console.log(file.type);
+            console.log('File uploaded to storage successfully');  
+  
         }catch (error) {
-             console.log("I failed....",error);
-             console.log("I failed....",error);
-             console.log("I failed....",error);
-             console.log("I failed....",error);
-             console.log("I failed....",error);
-             console.log("I failed....",error);
+            console.error('Error uploading file to storage:', error);
+             console.log("I failed....",error);             
     }
     return true;
-}
-               
-            
-            
+}       
 
 
 export async function signInWithGoogle() {

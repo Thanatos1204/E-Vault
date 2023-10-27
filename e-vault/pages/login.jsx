@@ -39,13 +39,13 @@ export default function Login( {username} ) {
         }
       }
 
-    //   useEffect(()=>{
-    //     onAuthStateChanged(async (user) => {
-    //         if(user){
-    //             Router.push("/uploader");
-    //         }
-    //     });
-    //   },[]);
+      useEffect(()=>{
+        onAuthStateChanged(async (user) => {
+            if(user){
+                Router.push("/uploader");
+            }
+        });
+      },[]);
 
     return (
         <Layout pageTitle="Login" >

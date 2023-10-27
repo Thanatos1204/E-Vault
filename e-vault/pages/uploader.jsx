@@ -12,7 +12,7 @@ import { onAuthStateChanged } from "../src/lib/firebase/auth";
 import { db } from '../src/lib/firebase/config'
 import { collection,getDoc,doc } from "firebase/firestore";
 import { updatefile } from "../src/lib/firebase/auth";
-
+import uploadFileToStorage from '../src/lib/firebase/auth';
 
 export const StyledHeading = styled.h1`
   font-size: 5rem;  
@@ -45,10 +45,11 @@ export default function Uploader(){
 
   async function handleSubmit(e){
     e.preventDefault();
-    const response = await updatefile(formname,formID);
+    const response = await updatefile(file,formname,formID);    
     if(response){
-        Router.push("/uploader");            
+        Router.push("/mydocuments");            
     }
+    
   }
 
   useEffect(()=>{
@@ -59,24 +60,18 @@ export default function Uploader(){
     });
   },[]);
 
-  // useEffect(() => {
-  //   const unlisten = onAuthStateChanged(async (authUser) => {
-  //     if (authUser) {
-  //       try {
-  //         const docSnap = await getDoc(doc(db, "user-data", authUser.uid));
-  //         setUser(docSnap.data());
-  //       } catch (error) {
-  //         console.error('Error fetching user data:', error);
-  //       }
-  //     } else {
-  //       Router.push("/");
-  //     }
-  //   });
+  async function handleSubmit2(e){
+    e.preventDefault();
+    Router.push("/mydocuments")
+  }
 
-  //   return () => {
-  //     unlisten(); // Clean up the listener when the component unmounts
-  //   };
-  // }, [Router,db,user]);
+  async function handleSubmit3(e){
+    e.preventDefault();
+    const response = await signOut();
+    Router.push("/");
+  }
+
+ 
   //   const [file, setFile] = useState(null);
   //   const [previewUrl, setPreviewUrl] = useState(null);
 
@@ -140,15 +135,15 @@ export default function Uploader(){
             </Head>
             <main>
                 
-                  <button className="signout-btn" onClick={signOut}>Sign Out</button>
+                  <button className="signout-btn" onClick={handleSubmit3}>Sign Out</button>
                     <StyledHeading><h1 className="titles">Upload Your Files</h1></StyledHeading>
                 <div className="container">
                         <form action="">
                             <input minLength="3" name="form-name" value={formname} onChange={(event) => setFormname(event.currentTarget.value)} id="form-name" type="text" placeholder='Form-Name' required></input><br/>
                             <input minLength="3" name="form-id" value={formID} onChange={(event) => setFormID(event.currentTarget.value)} id="form-id" type="text" placeholder='Form-ID' required></input><br/>
-                            <input className="choose-file-btn" value={file}  name="file" type="file"></input><br/>
+                            <input className="choose-file-btn"  onChange={(event) => setFile(event.currentTarget.files[0])} name="file" type="file"></input><br/>
                             <input className="upload-files-btn" onClick={handleSubmit} name="upload" type="submit"></input>
-                            <input className="upload-files-btn" name="Cancel" type="submit" value="Cancel"></input>
+                            <input className="upload-files-btn" onClick={handleSubmit2} name="view documents" type="submit" value="Show Documents"></input>
                         </form>
                 </div>        
                 

@@ -3,7 +3,6 @@ import { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import React, { useState, useEffect } from "react";
 
-
 const theme = {
   colors: {
     primary: "#0070f3",
