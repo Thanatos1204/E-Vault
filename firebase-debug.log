@@ -1,0 +1,18 @@
+[debug] [2023-10-27T23:53:55.031Z] ----------------------------------------------------------------------
+[debug] [2023-10-27T23:53:55.032Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\BHARGAV\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-10-27T23:53:55.033Z] CLI Version:   12.7.0
+[debug] [2023-10-27T23:53:55.033Z] Platform:      win32
+[debug] [2023-10-27T23:53:55.033Z] Node Version:  v21.1.0
+[debug] [2023-10-27T23:53:55.033Z] Time:          Sat Oct 28 2023 05:23:55 GMT+0530 (India Standard Time)
+[debug] [2023-10-27T23:53:55.033Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-27T23:53:55.095Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-27T23:53:55.095Z] > authorizing via signed-in user (manaspatil0967@gmail.com)
+[debug] [2023-10-27T23:53:55.096Z] [iam] checking project evault-ea972 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2023-10-27T23:53:55.097Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/evault-ea972:testIamPermissions [none]
+[debug] [2023-10-27T23:53:55.097Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/evault-ea972:testIamPermissions x-goog-quota-user=projects/evault-ea972
+[debug] [2023-10-27T23:53:55.097Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/evault-ea972:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2023-10-27T23:53:56.643Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/evault-ea972:testIamPermissions 200
+[debug] [2023-10-27T23:53:56.643Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/evault-ea972:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2023-10-27T23:53:56.644Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/evault-ea972/serviceAccounts/evault-ea972@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-10-27T23:53:56.644Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/evault-ea972/serviceAccounts/evault-ea972@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
